@@ -1,20 +1,36 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello PersonnageController!{% endblock %}
+{% block title %}Visionnez vos personnages !{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <h1>Visionnez vos personnages</h1>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/home/bastien/Bureau/TheEmpire/src/Controller/PersonnageController.php'|file_link(0) }}">src/Controller/PersonnageController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/home/bastien/Bureau/TheEmpire/templates/personnage/index.html.twig'|file_link(0) }}">templates/personnage/index.html.twig</a></code></li>
-    </ul>
-</div>
+    <table>
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>DateDeNaissance</th>
+                <th>Description</th>
+                <th>Niveau</th>
+                <th>Experience</th>
+                <th>Vie</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for personnage in personnages %}
+            <tr>
+                <td>{{ personnage.Nom }}</td>
+                <td>{{ personnage.DateDeNaissance|date('d-m-Y') }}</td>
+                <td>{{ personnage.Description }}</td>
+                <td>{{ personnage.Niveau }}</td>
+                <td>{{ personnage.Experience }}</td>
+                <td>{{ personnage.Vie }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td>Vous n'avez pas de personnage</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}

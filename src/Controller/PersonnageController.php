@@ -2,17 +2,22 @@
 
 namespace App\Controller;
 
+use App\Entity\Personnage;
+use App\Form\PersonnageType;
+use App\Repository\PersonnageRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+
 class PersonnageController extends AbstractController
 {
-    #[Route('/personnage', name: 'app_personnage')]
-    public function index(): Response
+    #[Route('/', name: 'home')]
+    public function index(PersonnageRepository $personnageRepository): Response
     {
         return $this->render('personnage/index.html.twig', [
-            'controller_name' => 'PersonnageController',
+            'personnages' => $personnageRepository->findAll(),
         ]);
     }
 }
