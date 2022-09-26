@@ -3,34 +3,44 @@
 {% block title %}Visionnez vos personnages !{% endblock %}
 
 {% block body %}
-    <h1>Visionnez vos personnages</h1>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Nom</th>
-                <th>DateDeNaissance</th>
-                <th>Description</th>
-                <th>Niveau</th>
-                <th>Experience</th>
-                <th>Vie</th>
-            </tr>
-        </thead>
-        <tbody>
+        <div class="disp-flex j-c-center"><h1>Visionnez vos personnages</h1></div>
         {% for personnage in personnages %}
-            <tr>
-                <td>{{ personnage.Nom }}</td>
-                <td>{{ personnage.DateDeNaissance|date('d-m-Y') }}</td>
-                <td>{{ personnage.Description }}</td>
-                <td>{{ personnage.Niveau }}</td>
-                <td>{{ personnage.Experience }}</td>
-                <td>{{ personnage.Vie }}</td>
-            </tr>
+            <div class="disp-flex al-center flex-d-c mg-b-5vh">
+                <p class="mg-1vh">Nom : {{ personnage.Nom }}</p>
+                <p class="mg-1vh">Description : {{ personnage.Description }}</p>
+                <p class="mg-1vh">Date de naissance : {{ personnage.DateDeNaissance|date('d-m-Y') }}</p>
+                <p class="mg-1vh">Vie : {{ personnage.Vie }}</p>
+                <p class="mg-1vh">Niveau : {{ personnage.Niveau }}</p>
+                <p class="mg-1vh">Expérience : {{ personnage.Experience }}</p>
+            </div>
         {% else %}
-            <tr>
-                <td>Vous n'avez pas de personnage</td>
-            </tr>
+            <p>Vous n'avez pas de personnage</p>
         {% endfor %}
-        </tbody>
-    </table>
+
+
+        <style>
+            .disp-flex {
+                display: flex;
+            }
+
+            .j-c-center {
+                justify-content: center;
+            }
+
+            .al-center {
+                align-items: center;
+            }
+
+            .flex-d-c {
+                flex-direction: column;
+            }
+
+            .mg-1vh {
+                margin: 1vh;
+            }
+            .mg-b-5vh {
+                margin-bottom: 5vh
+            }
+        </style>
 {% endblock %}
