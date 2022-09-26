@@ -37,6 +37,9 @@ class Personnage
     #[ORM\ManyToMany(targetEntity: Competence::class, inversedBy: 'personnages')]
     private Collection $PersonnageCompetence;
 
+    #[ORM\ManyToOne(inversedBy: 'personnages')]
+    private ?Type $PersonnageType = null;
+
     public function __construct()
     {
         $this->PersonnageCompetence = new ArrayCollection();
@@ -139,6 +142,18 @@ class Personnage
     public function removePersonnageCompetence(Competence $personnageCompetence): self
     {
         $this->PersonnageCompetence->removeElement($personnageCompetence);
+
+        return $this;
+    }
+
+    public function getPersonnageType(): ?Type
+    {
+        return $this->PersonnageType;
+    }
+
+    public function setPersonnageType(?Type $PersonnageType): self
+    {
+        $this->PersonnageType = $PersonnageType;
 
         return $this;
     }
