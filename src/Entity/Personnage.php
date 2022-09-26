@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\PersonnageRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -31,6 +33,14 @@ class Personnage
 
     #[ORM\Column]
     private ?int $Vie = null;
+
+    #[ORM\ManyToMany(targetEntity: Competence::class, inversedBy: 'personnages')]
+    private Collection $PersonnageCompetence;
+
+    public function __construct()
+    {
+        $this->PersonnageCompetence = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -105,6 +115,30 @@ class Personnage
     public function setVie(int $Vie): self
     {
         $this->Vie = $Vie;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Competence>
+     */
+    public function getPersonnageCompetence(): Collection
+    {
+        return $this->PersonnageCompetence;
+    }
+
+    public function addPersonnageCompetence(Competence $personnageCompetence): self
+    {
+        if (!$this->PersonnageCompetence->contains($personnageCompetence)) {
+            $this->PersonnageCompetence->add($personnageCompetence);
+        }
+
+        return $this;
+    }
+
+    public function removePersonnageCompetence(Competence $personnageCompetence): self
+    {
+        $this->PersonnageCompetence->removeElement($personnageCompetence);
 
         return $this;
     }
