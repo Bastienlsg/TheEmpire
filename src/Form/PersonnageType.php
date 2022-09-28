@@ -30,19 +30,4 @@ class PersonnageType extends AbstractType
             'data_class' => Personnage::class,
         ]);
     }
-
-    public function buildFormType(FormBuilderInterface $builder, array $options): void
-    {
-        $builder
-            ->add('Nom')
-            ->add('Avatar')
-        ;
-    }
-
-    public function configureOptionsType(OptionsResolver $resolver): void
-    {
-        $resolver->setDefaults([
-            'data_class' => Type::class,
-        ]);
-    }
 }
