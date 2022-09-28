@@ -4,43 +4,19 @@
 
 {% block body %}
 
-        <div class="disp-flex j-c-center">
-            <h1>Visionnez vos types</h1>
-            <a href="{{ path('home') }}">Retourner voir les personnages</a>
-        </div>
-        {% for type in types %}
-            <div class="disp-flex al-center flex-d-c mg-b-5vh">
-                <img src="{{ type.avatar }}" width="150" height="150">
-                <p class="mg-1vh">Nom : {{ type.Nom }}</p>
-                <a href="{{ path('voir_type', {'id': type.id}) }}">Voir en détail</a>
-            </div>
-        {% else %}
-            <p>Vous n'avez pas de type</p>
-        {% endfor %}
+    <div class="disp-flex fl-col al-center">
+        <h1>Visionnez vos types</h1>
+        <a href="{{ path('home') }}">Retourner voir les personnages</a>
+    </div>
 
-
-        <style>
-            .disp-flex {
-                display: flex;
-            }
-
-            .j-c-center {
-                justify-content: center;
-            }
-
-            .al-center {
-                align-items: center;
-            }
-
-            .flex-d-c {
-                flex-direction: column;
-            }
-
-            .mg-1vh {
-                margin: 1vh;
-            }
-            .mg-b-5vh {
-                margin-bottom: 5vh
-            }
-        </style>
+    {% for type in types %}
+    <div class="disp-flex fl-col al-center mg-t-25px">
+        <img src="{{ type.avatar }}" width="150" height="150">
+        <p class="mg-5px">Nom : {{ type.Nom }}</p>
+        <a href="{{ path('voir_type', {'id': type.id}) }}">Voir en détail</a>
+    </div>
+    {% else %}
+        <p class="mg-5px">Vous n'avez pas de type</p>
+    {% endfor %}
+    
 {% endblock %}
