@@ -13,6 +13,7 @@
                 <p class="mg-1vh">Vie : {{ personnage.Vie }}</p>
                 <p class="mg-1vh">Niveau : {{ personnage.Niveau }}</p>
                 <p class="mg-1vh">Expérience : {{ personnage.Experience }}</p>
+                <a href="{{ path('voir_personnage', {'id': personnage.id}) }}">Voir en détail</a>
             </div>
         {% else %}
             <p>Vous n'avez pas de personnage</p>

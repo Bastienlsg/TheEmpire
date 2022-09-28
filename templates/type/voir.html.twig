@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Voici ton type{% endblock %}
+
+{% block body %}
+    <h1>Voici ton type</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <img src="{{ type.avatar }}" width="500" height="500">
+                <th>Nom</th>
+                <td>{{ type.Nom }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('home_type') }}">Retourner voir les types</a>
+{% endblock %}

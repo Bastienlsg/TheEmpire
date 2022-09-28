@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Voici ton personnage{% endblock %}
+
+{% block body %}
+    <h1>Voici ton personnage</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Nom</th>
+                <td>{{ personnage.Nom }}</td>
+            </tr>
+            <tr>
+                <th>Date de naissance</th>
+                <td>{{ personnage.DateDeNaissance ? personnage.DateDeNaissance|date('d-m-Y') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ personnage.Description }}</td>
+            </tr>
+            <tr>
+                <th>Compétence</th>
+            </tr>
+            <tr>
+                <th>Niveau</th>
+                <td>{{ personnage.Niveau }}</td>
+            </tr>
+            <tr>
+                <th>Experience</th>
+                <td>{{ personnage.Experience }}</td>
+            </tr>
+            <tr>
+                <th>Vie</th>
+                <td>{{ personnage.Vie }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('home') }}">Retourner voir les personnages</a>
+{% endblock %}
