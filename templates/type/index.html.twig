@@ -4,7 +4,10 @@
 
 {% block body %}
 
-        <div class="disp-flex j-c-center"><h1>Visionnez vos types</h1></div>
+        <div class="disp-flex j-c-center">
+            <h1>Visionnez vos types</h1>
+            <a href="{{ path('home') }}">Retourner voir les personnages</a>
+        </div>
         {% for type in types %}
             <div class="disp-flex al-center flex-d-c mg-b-5vh">
                 <img src="{{ type.avatar }}" width="150" height="150">

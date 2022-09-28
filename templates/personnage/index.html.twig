@@ -4,7 +4,12 @@
 
 {% block body %}
 
-        <div class="disp-flex j-c-center"><h1>Visionnez vos personnages</h1></div>
+        <div class="disp-flex j-c-center">
+            <h1>Visionnez vos personnages</h1>
+            <a href="{{ path('ajout_personnage') }}">Créez un nouveau personnage</a>
+            <a href="{{ path('home_type') }}">Afficher les types</a>
+        </div>
+
         {% for personnage in personnages %}
             <div class="disp-flex al-center flex-d-c mg-b-5vh">
                 <p class="mg-1vh">Nom : {{ personnage.Nom }}</p>
@@ -44,4 +49,5 @@
                 margin-bottom: 5vh
             }
         </style>
+
 {% endblock %}

@@ -19,8 +19,6 @@ class PersonnageType extends AbstractType
             ->add('Niveau')
             ->add('Experience')
             ->add('Vie')
-            ->add('PersonnageCompetence')
-            ->add('PersonnageType')
         ;
     }
 

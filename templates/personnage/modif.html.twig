@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier ce personnage{% endblock %}
+
+{% block body %}
+    <h1>Modifier ce personnage</h1>
+
+    {{ include('personnage/form.html.twig', {'button_label': 'Modifier'}) }}
+
+    <a href="{{ path('home') }}">Retourner voir les personnages</a>
+
+{% endblock %}

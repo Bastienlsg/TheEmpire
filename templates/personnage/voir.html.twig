@@ -38,4 +38,7 @@
     </table>
 
     <a href="{{ path('home') }}">Retourner voir les personnages</a>
+    {{ include('personnage/suppr_form.html.twig') }}
+    <a href="{{ path('modif_personnage', {'id': personnage.id}) }}">Modifiez ce personnage</a>
+
 {% endblock %}
