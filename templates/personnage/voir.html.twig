@@ -14,8 +14,8 @@
         <p class="mg-5px">Expérience : {{ personnage.Experience }}</p>
     </div>
 
-    <a href="{{ path('home') }}">Retourner voir les personnages</a>
+    <a class="button" href="{{ path('home') }}">Voir les personnages</a>
     {{ include('personnage/suppr_form.html.twig') }}
-    <a href="{{ path('modif_personnage', {'id': personnage.id}) }}">Modifiez ce personnage</a>
+    <a class="button" href="{{ path('modif_personnage', {'id': personnage.id}) }}">Editer le personnage</a>
 
 {% endblock %}

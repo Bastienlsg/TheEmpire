@@ -5,22 +5,20 @@
 {% block body %}
     <div class="disp-flex fl-col al-center">
         <h1>Visionnez vos personnages</h1>
-        <a href="{{ path('ajout_personnage') }}">Créez un nouveau personnage</a>
-        <a href="{{ path('home_type') }}">Afficher les types</a>
+        <a class="button" href="{{ path('ajout_personnage') }}">Ajout personnage</a>
+        <a class="button" href="{{ path('home_type') }}">Voir les types</a>
     </div>
 
     {% for personnage in personnages %}
-    <div class="disp-flex fl-col al-center mg-t-25px">
-        <p class="mg-5px">Nom : {{ personnage.Nom }}</p>
-        <p class="mg-5px">Description : {{ personnage.Description }}</p>
-        <p class="mg-5px">Date de naissance : {{ personnage.DateDeNaissance|date('d-m-Y') }}</p>
-        <p class="mg-5px">Vie : {{ personnage.Vie }}</p>
-        <p class="mg-5px">Niveau : {{ personnage.Niveau }}</p>
-        <p class="mg-5px">Expérience : {{ personnage.Experience }}</p>
-        <a href="{{ path('voir_personnage', {'id': personnage.id}) }}">Voir en détail</a>
-    </div>
-    {% else %}
-        <p class="mg-5px">Vous n'avez pas de personnage</p>
+        <div class="disp-flex fl-col al-center mg-t-25px">
+            <p class="mg-5px">Nom : {{ personnage.Nom }}</p>
+            <p class="mg-5px">Description : {{ personnage.Description }}</p>
+            <p class="mg-5px">Date de naissance : {{ personnage.DateDeNaissance|date('d-m-Y') }}</p>
+            <p class="mg-5px">Vie : {{ personnage.Vie }}</p>
+            <p class="mg-5px">Niveau : {{ personnage.Niveau }}</p>
+            <p class="mg-5px">Expérience : {{ personnage.Experience }}</p>
+            <a class="button" href="{{ path('voir_personnage', {'id': personnage.id}) }}">Voir en détail</a>
+        </div>
     {% endfor %}
 
 {% endblock %}

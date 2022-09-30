@@ -5,18 +5,16 @@
 {% block body %}
 
     <div class="disp-flex fl-col al-center">
-        <h1>Visionnez vos types</h1>
-        <a href="{{ path('home') }}">Retourner voir les personnages</a>
+        <a class="button" href="{{ path('home') }}">Voir les personnages</a>
+        <p>Visionnez vos types</p>
     </div>
 
     {% for type in types %}
-    <div class="disp-flex fl-col al-center mg-t-25px">
-        <img src="{{ type.avatar }}" width="150" height="150">
-        <p class="mg-5px">Nom : {{ type.Nom }}</p>
-        <a href="{{ path('voir_type', {'id': type.id}) }}">Voir en détail</a>
-    </div>
-    {% else %}
-        <p class="mg-5px">Vous n'avez pas de type</p>
+        <div class="disp-flex fl-col al-center">
+            <img src="{{ type.avatar }}" width="150" height="150">
+            <p class="mg-5px">Nom : {{ type.Nom }}</p>
+            <a class="button" href="{{ path('voir_type', {'id': type.id}) }}">Voir en détail</a>
+        </div>
     {% endfor %}
     
 {% endblock %}

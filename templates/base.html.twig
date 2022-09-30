@@ -21,16 +21,18 @@
     <body>
         <header class="disp-flex j-c-sp-btwn al-center height-6vh bc-black relative-p">
             <a href="{{ path('home') }}" class="mg-l-5vw"><img src="https://www.nicepng.com/png/full/115-1153942_white-home-icon-png-white-home-logo-transparent.png" width="35" height="35" alt="icone de retour à l'index"></a>
-            <h1 class="c-white absolute-p absolute-p-c">The Empire</h1>
+            <h1 class="absolute-p absolute-p-c">The Empire</h1>
             <nav class="disp-flex j-c-sp-btwn width-10vw mg-r-5vw">
                 <a href="{{ path('ajout_personnage') }}" class=""><img src="https://www.nicepng.com/png/full/251-2519428_0-add-icon-white-png.png" width="35" height="35" alt="icone d'ajout de personnage"></a>
                 <a href="{{ path('home_type') }}" class=""><img src="https://www.nicepng.com/png/full/782-7824434_contact-icon-tick-list-png-icon-white.png" width="35" height="35" alt="icone voir les types"></a>
             </nav>
         </header>
 
-        <div class="disp-flex fl-col j-c-center al-center">
-            {% block body %}
-            {% endblock %}
+        <div class="disp-flex j-c-center al-center w-100pc h-85vh">
+            <div class="disp-flex fl-col j-c-center al-center glassphormism pad-20px">
+                {% block body %}
+                {% endblock %}
+            </div>
         </div>
     </body>
 </html>
