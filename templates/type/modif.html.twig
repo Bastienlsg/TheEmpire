@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier ce type{% endblock %}
+
+{% block body %}
+    <h1>Modifier ce type</h1>
+
+    {{ include('type/form.html.twig', {'button_label': 'Modifier'}) }}
+
+    <a class="button" href="{{ path('home_type') }}">Voir les types</a>
+
+{% endblock %}

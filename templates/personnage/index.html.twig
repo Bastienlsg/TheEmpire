@@ -17,6 +17,7 @@
             <p class="mg-5px">Vie : {{ personnage.Vie }}</p>
             <p class="mg-5px">Niveau : {{ personnage.Niveau }}</p>
             <p class="mg-5px">Expérience : {{ personnage.Experience }}</p>
+            <p class="mg-5px">Compétence :{% for competence in personnage.personnageCompetence %}{{ competence.Nom }}{% endfor %}</p>
             <a class="button" href="{{ path('voir_personnage', {'id': personnage.id}) }}">Voir en détail</a>
         </div>
     {% endfor %}

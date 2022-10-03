@@ -4,8 +4,11 @@ namespace App\Controller;
 
 use App\Entity\Personnage;
 use App\Entity\Type;
+
 use App\Form\PersonnageType;
 use App\Repository\PersonnageRepository;
+use App\Repository\CompetenceRepository;
+use App\Form\FormType;
 use App\Repository\TypeRepository;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -20,7 +23,7 @@ class PersonnageController extends AbstractController
     public function index(PersonnageRepository $personnageRepository): Response
     {
         return $this->render('personnage/index.html.twig', [
-            'personnages' => $personnageRepository->findAll(),
+            'personnages' => $personnageRepository->findAll()
         ]);
     }
 
@@ -29,7 +32,7 @@ class PersonnageController extends AbstractController
     public function show(Personnage $personnage): Response
     {
         return $this->render('personnage/voir.html.twig', [
-            'personnage' => $personnage,
+            'personnage' => $personnage
         ]);
     }
 
@@ -50,7 +53,7 @@ class PersonnageController extends AbstractController
 
         return $this->renderForm('personnage/ajout.html.twig', [
             'personnage' => $personnage,
-            'form' => $form,
+            'form' => $form
         ]);
     }
 
@@ -68,7 +71,7 @@ class PersonnageController extends AbstractController
 
         return $this->renderForm('personnage/modif.html.twig', [
             'personnage' => $personnage,
-            'form' => $form,
+            'form' => $form
         ]);
     }
 
@@ -86,7 +89,26 @@ class PersonnageController extends AbstractController
     public function indextype(TypeRepository $typeRepository): Response
     {
         return $this->render('type/index.html.twig', [
-            'types' => $typeRepository->findAll(),
+            'types' => $typeRepository->findAll()
+        ]);
+    }
+
+    #[Route('/type/ajout', name: 'ajout_type', methods: ['GET', 'POST'])]
+    public function newType(Request $request, TypeRepository $typeRepository): Response
+    {
+        $type = new Type();
+        $form = $this->createForm(FormType::class, $type);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $typeRepository->save($type, true);
+
+            return $this->redirectToRoute('home_type', [], Response::HTTP_SEE_OTHER);
+        }
+
+        return $this->renderForm('type/ajout.html.twig', [
+            'type' => $type,
+            'form' => $form
         ]);
     }
 
@@ -94,7 +116,35 @@ class PersonnageController extends AbstractController
     public function showtype(Type $type): Response
     {
         return $this->render('type/voir.html.twig', [
-            'type' => $type,
+            'type' => $type
         ]);
+    }
+
+    #[Route('/type/modification/{id}', name: 'modif_type', methods: ['GET', 'POST'])]
+    public function edittype(Request $request, Type $type, TypeRepository $typeRepository): Response
+    {
+        $form = $this->createForm(FormType::class, $type);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $typeRepository->save($type, true);
+
+            return $this->redirectToRoute('home_type', [], Response::HTTP_SEE_OTHER);
+        }
+
+        return $this->renderForm('type/modif.html.twig', [
+            'type' => $type,
+            'form' => $form
+        ]);
+    }
+
+    #[Route('type/suppression/{id}', name: 'suppr_type', methods: ['POST'])]
+    public function deletetype(Request $request, Type $type, TypeRepository $typeRepository): Response
+    {
+        if ($this->isCsrfTokenValid('supprimer'.$type->getId(), $request->request->get('_token'))) {
+            $typeRepository->remove($type, true);
+        }
+
+        return $this->redirectToRoute('home_type', [], Response::HTTP_SEE_OTHER);
     }
 }
