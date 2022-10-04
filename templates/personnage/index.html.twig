@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Visionnez vos personnages !{% endblock %}
+{% block title %}Voici vos personnages !{% endblock %}
 
 {% block body %}
     <div class="disp-flex fl-col al-center">
@@ -19,7 +19,7 @@
             <p class="mg-5px">Expérience : {{ personnage.Experience }}</p>
             <p class="mg-5px">Compétence :{% for competence in personnage.personnageCompetence %}{{ competence.Nom }}{% endfor %}</p>
             <p class="mg-5px">Type :{{ personnage.personnageType.Nom }}</p>
-            <a class="button" href="{{ path('voir_personnage', {'id': personnage.id}) }}">Voir en détail</a>
+            <a class="button" href="{{ path('voir_personnage', {'id': personnage.id}) }}">détails</a>
         </div>
     {% endfor %}
 

@@ -39,6 +39,11 @@ class Competence
         return $this->Nom;
     }
 
+    public function __toString()
+    {
+        return(string) $this->Nom;
+    }
+
     public function setNom(string $Nom): self
     {
         $this->Nom = $Nom;

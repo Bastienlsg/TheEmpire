@@ -6,8 +6,9 @@ use App\Entity\Personnage;
 use App\Entity\Type;
 
 use App\Form\PersonnageType;
-use App\Repository\PersonnageRepository;
 use App\Form\FormType;
+
+use App\Repository\PersonnageRepository;
 use App\Repository\TypeRepository;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -35,8 +36,6 @@ class PersonnageController extends AbstractController
         ]);
     }
 
-    /* quand je mets /personnage/ajout ça ne marche pas, je trouve pas pk*/
-
     #[Route('/ajout', name: 'ajout_personnage', methods: ['GET', 'POST'])]
     public function new(Request $request, PersonnageRepository $personnageRepository): Response
     {
@@ -47,7 +46,7 @@ class PersonnageController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $personnageRepository->save($personnage, true);
 
-            return $this->redirectToRoute('home', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('home');
         }
 
         return $this->renderForm('personnage/ajout.html.twig', [
@@ -65,7 +64,7 @@ class PersonnageController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $personnageRepository->save($personnage, true);
 
-            return $this->redirectToRoute('home', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('home');
         }
 
         return $this->renderForm('personnage/modif.html.twig', [
@@ -81,7 +80,7 @@ class PersonnageController extends AbstractController
             $personnageRepository->remove($personnage, true);
         }
 
-        return $this->redirectToRoute('home', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('home');
     }
     
     #[Route('/type', name: 'home_type')]
@@ -102,7 +101,7 @@ class PersonnageController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $typeRepository->save($type, true);
 
-            return $this->redirectToRoute('home_type', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('home_type');
         }
 
         return $this->renderForm('type/ajout.html.twig', [
@@ -128,7 +127,7 @@ class PersonnageController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $typeRepository->save($type, true);
 
-            return $this->redirectToRoute('home_type', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('home_type');
         }
 
         return $this->renderForm('type/modif.html.twig', [
@@ -144,6 +143,6 @@ class PersonnageController extends AbstractController
             $typeRepository->remove($type, true);
         }
 
-        return $this->redirectToRoute('home_type', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('home_type');
     }
 }

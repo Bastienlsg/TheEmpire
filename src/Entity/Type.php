@@ -46,6 +46,11 @@ class Type
 
         return $this;
     }
+    
+    public function __toString()
+    {
+        return(string) $this->Nom;
+    }
 
     public function getAvatar(): ?string
     {

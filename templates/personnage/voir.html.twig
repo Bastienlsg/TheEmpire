@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Voici ton personnage{% endblock %}
+{% block title %}Détails du personnage{% endblock %}
 
 {% block body %}
     <h1>Voici ton personnage</h1>
@@ -13,10 +13,12 @@
         <p class="mg-5px">Niveau : {{ personnage.Niveau }}</p>
         <p class="mg-5px">Expérience : {{ personnage.Experience }}</p>
         <p class="mg-5px">Compétence :{% for competence in personnage.personnageCompetence %}{{ competence.Nom }}{% endfor %}</p>
+        <p class="mg-5px">Type :{{ personnage.personnageType.Nom }}</p>
+        <img class="mg-5px" src="{{ personnage.personnageType.Avatar }}" width="150" height="150">
     </div>
 
     <a class="button" href="{{ path('home') }}">Voir les personnages</a>
     {{ include('personnage/suppr_form.html.twig') }}
-    <a class="button" href="{{ path('modif_personnage', {'id': personnage.id}) }}">Editer le personnage</a>
+    <a class="button" href="{{ path('modif_personnage', {'id': personnage.id}) }}">Editer</a>
 
 {% endblock %}
