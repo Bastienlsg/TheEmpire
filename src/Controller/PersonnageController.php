@@ -7,7 +7,6 @@ use App\Entity\Type;
 
 use App\Form\PersonnageType;
 use App\Repository\PersonnageRepository;
-use App\Repository\CompetenceRepository;
 use App\Form\FormType;
 use App\Repository\TypeRepository;
 
