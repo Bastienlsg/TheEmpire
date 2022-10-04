@@ -14,7 +14,7 @@ class PersonnageType extends AbstractType
     {
         $builder
             ->add('Nom')
-            ->add('DateDeNaissance')
+            ->add('DateDeNaissance', null, ['years' => range(date('Y'), date('Y') - 250)])
             ->add('Description')
             ->add('Niveau')
             ->add('Experience')
