@@ -2,7 +2,7 @@
 
 🗡️ Créez des personnages et attribuez leur des compétences et des types ! 🗡️
 
-## <u>Il vous faut :</u>
+## Il vous faut :
 
 * Un serveur local en utilisant [LAMP](https://doc.ubuntu-fr.org/lamp) ou [WAMP](https://www.wampserver.com/)
 * [PHP 8.1+](https://www.php.net/downloads)
