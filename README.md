@@ -12,7 +12,7 @@
 
 * Faire une copie du projet en mettant dans le terminal :
 
-```git clone https://github.com/VentoAureo230/Symfony-Heros```
+```git clone https://github.com/Bastienlsg/TheEmpire```
 
 ## Démarrez le projet :
 
