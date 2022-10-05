@@ -12,8 +12,8 @@ class FormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('Nom')
-            ->add('Avatar')
+            ->add('Nom', null, ['attr' => array('class' => 'w-100pc mg-5px')])
+            ->add('Avatar', null, ['attr' => array('class' => 'w-100pc mg-5px')])
         ;
     }
 

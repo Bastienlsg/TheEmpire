@@ -1,4 +1,4 @@
-# TheEmpire - Faites vos personnages 
+# 👑 TheEmpire - Faites vos personnages 👑
 
 🗡️ Créez des personnages et attribuez leur des compétences et des types ! 🗡️
 

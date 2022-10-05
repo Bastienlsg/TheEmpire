@@ -13,14 +13,14 @@ class PersonnageType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('Nom')
+            ->add('Nom', null, ['attr' => array('class' => 'w-100pc mg-5px')])
             ->add('DateDeNaissance', null, ['years' => range(date('Y'), date('Y') - 250)])
-            ->add('Description')
-            ->add('Niveau')
-            ->add('Experience')
-            ->add('Vie')
-            ->add('PersonnageCompetence')
-            ->add('PersonnageType')
+            ->add('Description', null, ['attr' => array('class' => 'w-100pc mg-5px')])
+            ->add('Niveau', null, ['attr' => array('class' => 'w-100pc mg-5px')])
+            ->add('Experience', null, ['attr' => array('class' => 'w-100pc mg-5px')])
+            ->add('Vie', null, ['attr' => array('class' => 'w-100pc mg-5px')])
+            ->add('PersonnageCompetence', null, ['attr' => array('class' => 'w-100pc mg-5px')])
+            ->add('PersonnageType', null, ['attr' => array('class' => 'w-100pc mg-5px')])
         ;
     }
 
